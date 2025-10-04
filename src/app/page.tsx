@@ -1,9 +1,12 @@
-import { Button } from "@/components/ui/button";
+import { currentUser } from "@/modules/authentication/actions";
+import UserButton from "@/modules/authentication/components/user-button";
 
-const HomePage = () => {
+const HomePage = async () => {
+  const user = await currentUser();
+
   return (
     <div>
-      <Button>Click Me</Button>
+      <UserButton user={user} />
     </div>
   );
 };
